@@ -1,0 +1,290 @@
+// start game
+Do
+    TracePrint "in"
+    If CmpColorEx("302|449|5E84B9,315|454|E0E9E9,323|453|050505,316|467|4E6FA1",0.95) = 1 Then
+        TracePrint "nickname"
+        goTouch 302, 449, 1, 300
+        Delay 500
+        goTouch 395, 513, 1, 300
+    Else
+        goTouch(406, 464, 1, 200)
+    End If
+
+    If CmpColorEx("31|28|DFECFB,28|39|AAC1E7,45|45|A5AAED",0.95) = 1 Then
+        TracePrint "exit do"
+        Exit do
+    End If
+    Delay 500
+Loop
+
+
+Dim checkInGameX,checkInGameY
+FindMultiColor 0,0,0,0,"363838","20|37|323434",0,0.95,checkInGameX,checkInGameY
+If checkInGameX > -1 And checkInGameY > -1 Then
+    //in game
+    Do
+        //message
+        If CmpColorEx("263|487|08076A,272|488|030374,268|492|180F6C", 0.85) = 1 Then
+            TracePrint "message"
+            goTouch(263, 487, 20, 100)
+        End If
+
+        // (...) icon
+        If CmpColorEx("595|224|94B2E8,598|231|A5B4ED,603|241|B9D0EF",0.85) = 1 Then
+            TracePrint "icon"
+            goTouch(595, 224, 3, 100)
+        End If
+
+        //teaching bg
+        If CmpColorEx("293|519|3E2A1A,389|544|3C2A1A,508|550|382816",0.95) = 1 Then
+            goTouch(441, 388, 2, 100)
+        End If
+
+        //fight
+        Dim fightX,fightY
+        FindColor 285,63,539,265,"141EB2|3949C5|1C3888",0,0.98,fightX,fightY
+        If fightX > -1 And fightY > -1 Then
+            TracePrint "fight"
+            goTouch(fightX, fightY, 2, 200)
+        End If
+
+        //fight2
+        Dim fight2X,fight2Y
+        FindColor 200,181,535,337,"060EAB|141CE0|232F67",0,0.98,fight2X,fight2Y
+        If fight2X > -1 And fight2Y > -1 Then
+            TracePrint "fight2"
+            goTouch(fight2X, fight2Y, 2, 200)
+        End If
+
+        //fight3
+        Dim fight3X,fight3Y
+        FindColor 204,185,511,252,"0A0FB7|BDBFED|433B44",1,0.95,fight3X,fight3Y
+        If fight3X > -1 And fight3Y > -1 Then
+            TracePrint "fight3"
+            goTouch(fight3X, fight3Y, 2, 200)
+        End If
+
+        //victory
+        If CmpColorEx("356|578|AEADAC,388|578|ACACA9,426|589|AEAEAC",0.85) = 1 Then
+            TracePrint "victory"
+            goTouch(441, 388, 2, 100)
+        End If
+
+        //continue
+        Dim continueX,continueY
+        FindColor 335,561,467,599,"EBE9E4|FAFAF8|CBC7B8",0,0.85,continueX,continueY
+        If continueX > -1 And continueY > -1 Then
+            TracePrint "continue"
+            goTouch(407, 481, 1, 300)
+        End If
+
+        //mission
+        Dim missionX,missionY
+        FindMultiColor 1,251,799,357,"4D78AC","9|12|EBEBFF,21|21|0E121A,39|28|3A3D3F",0,0.95,missionX,missionY
+        If missionX > -1 And missionY > -1 Then
+            TracePrint "mission"
+            TracePrint missionX
+            TracePrint missionY
+            goTouch(missionX, missionY, 2, 100)
+        End If
+
+        //ignore
+        Dim ignoreX,ignoreY
+        FindColor 647,88,790,180,"C43253|E5C85F|E9AA35",0,1,ignoreX,ignoreY
+        If ignoreX > -1 And ignoreY > -1 Then
+            TracePrint "ignore"
+            goTouch(ignoreX, ignoreY, 2, 100)
+        End If
+
+        //icon Right
+        Dim fingerX,fingerY
+        FindColor 711,117,907,266,"999AEB|BAD0EF|291B8A",0,1,fingerX,fingerY
+        If fingerX > -1 And fingerY > -1 Then
+            TracePrint "ignore"
+            goTouch(fingerX, fingerY, 2, 100)
+        End If
+
+        //fingerIn
+        Dim fingerInX,fingerInY
+        FindColor 187,435,651,589,"271A86|291B8A",0,0.98,fingerInX,fingerInY
+        If fingerInX > -1 And fingerInY > -1 Then
+            TracePrint "fingerIn"
+            goTouch(fingerInX-50, fingerInY-50, 2, 300)
+            goTouch(fingerInX-40, fingerInY-40, 2, 300)
+            goTouch(fingerInX-30, fingerInY-30, 2, 300)
+        End If
+
+        //Pumping
+        If CmpColorEx("410|145|FDCFC2,421|194|F3C9C4,444|306|CF9088",0.95) = 1 Then
+            TracePrint "Pumping"
+            Swipe 423,160,426,280,500
+        End If
+
+        //Pumping2
+        If CmpColorEx("389|146|76A29D,413|219|638A8E,434|299|546A74",0.95) = 1 Then
+            TracePrint "Pumping2"
+            Swipe 423,160,426,280,500
+        End If
+
+        //enter
+        If CmpColorEx("280|542|5FB2F4,350|565|5FB2F4",0.95) = 1 Then
+            TracePrint "enter"
+            goTouch(280, 542, 2, 100)
+        End If
+
+        //finger Paper
+        If CmpColorEx("190|310|9EB0EA,211|341|271985,229|360|4A8AD3",0.95) = 1 Then
+            TracePrint "finger Paper"
+            goTouch(190, 310, 2, 100)
+        End If
+
+        //back
+        If CmpColorEx("14|8|380F1F,32|29|F9E9E0,42|34|3C1820",0.95) = 1 Then
+            goTouch(23, 13, 2, 100)
+            Delay 6000
+        End If
+
+        //go fight
+        Dim goFightX,goFightY
+        FindMultiColor 20,265,794,409,"57A4C9","10|14|79453C,27|30|491C18",0,0.95,goFightX,goFightY
+        If goFightX > -1 And goFightY > -1 Then
+            TracePrint "go fight"
+            goTouch(goFightX, goFightY, 2, 100)
+        End If
+
+        //start fight
+        If CmpColorEx("720|461|C6FFFF,753|521|A5FFFF",0.7) = 1 Then
+            TracePrint "start fight"
+            goTouch(711, 468, 2, 100)
+        End If
+
+        //ignore 2
+        If CmpColorEx("509|314|B9C5C8,647|328|0000FF",0.95) = 1 Then
+            TracePrint "ignore 2"
+            goTouch(509, 314, 2, 100)
+        End If
+
+        //select magic
+        If CmpColorEx("675|558|DE4000,678|596|FFFFD9",0.95) = 1 Then
+            TracePrint "select magic"
+            goTouch(675, 558, 2, 100)
+        End If
+
+        //eyes
+        Dim eyesX,eyesY
+        FindMultiColor 198,184,601,395,"2395B7","10|12|292A33,44|46|433B44",0,0.95,eyesX,eyesY
+        If eyesX > -1 And eyesY > -1 Then
+            TracePrint "start fight"
+            goTouch(eyesX, eyesY, 2, 200)
+        End If
+
+        //? icon
+        If CmpColorEx("304|257|DDEFFF,310|266|DDEFFF,310|281|DDEFFF",0.95) = 1 Then
+            TracePrint "? icon"
+            goTouch(304, 257, 2, 100)
+        End If
+
+        //eyes 2
+        If CmpColorEx("371|126|24AEE1,398|145|F2F1EF,429|179|01C8E1",0.95) = 1 Then
+            TracePrint "eyes 2"
+            goTouch(371, 126, 2, 100)
+        End If
+
+        //...MID
+        Dim digitX,digitY
+        FindColor 17,163,793,357,"465E88|4B4F51",0,0.98,digitX,digitY
+        If digitX > -1 And digitY > -1 Then
+            TracePrint "...MID"
+            goTouch(digitX, digitY, 2, 100)
+        End If
+
+        //R ?
+        Dim RightIconX,RightIconY
+        FindColor 741,182,796,391,"DDEFFF|BADCF0|DDEFFF",0,1,RightIconX,RightIconY
+        If RightIconX > -1 And RightIconY > -1 Then
+            TracePrint "R ?"
+            goTouch(RightIconX, RightIconY, 2, 300)
+        End If
+
+        //fix ...
+        Dim fixDigitX,fixDigitY
+        FindColor 82,218,321,299,"EBEBFF|E8E8FD",0,0.95,fixDigitX,fixDigitY
+        If fixDigitX > -1 And fixDigitY > -1 Then
+            TracePrint "end ?"
+            goTouch(fixDigitX, fixDigitY, 2, 100)
+        End If
+
+        //fix2 ...
+        Dim fixDigitX2,fixDigit2Y
+        FindColor 488,146,765,229,"EBEBFF|E8E8FD",0,0.95,fixDigitX2,fixDigit2Y
+        If fixDigitX2 > -1 And fixDigit2Y > -1 Then
+            TracePrint "end ?"
+            goTouch(fixDigitX2, fixDigit2Y, 2, 100)
+        End If
+
+        //fix3 ...
+        Dim fixDigitX3,fixDigit3Y
+        FindColor 511,199,694,309,"EBEBFF|E8E8FD",0,0.90,fixDigitX3,fixDigit3Y
+        If fixDigitX3 > -1 And fixDigit3Y > -1 Then
+            TracePrint "end ?"
+            goTouch(fixDigitX3, fixDigit3Y, 2, 100)
+        End If
+
+        //fix R finger
+        If CmpColorEx("775|161|EAFFFF,796|198|BED1EF",0.9) = 1 Then
+            TracePrint "fix R finger"
+            goTouch(780, 173, 2, 200)
+        End If
+
+        //exit
+        If CmpColorEx("277|330|462588,302|344|5169DD,366|354|5169DD",1) = 1 Then
+            TracePrint "exit"
+            goTouch(277, 330, 2, 100)
+            Exit do
+        End If
+
+        Delay 300
+    Loop
+
+    Delay 10000
+
+    //next get target
+    If CmpColorEx("383|473|1D3EB9,478|479|9AAAB0,612|482|C9DBE0",0.95) = 1 Then
+        TracePrint "get target"
+        goTouch(666, 181, 1, 200)
+        Delay 1000
+        goTouch(750, 542, 1, 200)
+        Delay 1000
+        goTouch(425, 546, 1, 200)
+        Delay 1500
+        goTouch(606, 171, 1, 200)
+        Delay 1000
+        goTouch(533, 427, 1, 200)
+        Delay 1500
+    End If
+
+    //get success
+    If CmpColorEx("277|225|1B2B3C,519|324|9BB4CC", 0.95) = 1 Then
+        TracePrint "success"
+        goTouch(277, 225, 1, 200)
+        Delay 1500
+        goTouch(735, 119, 1, 300)
+    End If
+
+    goTouch(735, 119, 2, 300)
+
+    //touch get targat
+    Delay 2000
+    Dim goTX,goTY
+    FindColor 681,134,776,240,"07070F|07070F|C4FEFF",0,0.95,goTX,goTY
+    If goTX > -1 And goTY > -1 Then
+        goTouch(goTX, goTY, 1, 300)
+        goTouch(724, 180, 1, 300)
+    End If
+End If
+
+Function goTouch(x, y, num, sec)
+    For num
+        Touch x, y, sec
+    Next
+End Function
